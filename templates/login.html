@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Existing User - CivicTap{% endblock %}
+{% block body %}
+<div class="container"><div class="card"><h1>Existing User</h1><p class="muted">Login with your registered phone number and password.</p>
+<form method="post">{% csrf_token %}
+<div class="form-row"><label>Phone Number</label><input name="phone" required maxlength="15" placeholder="Enter phone number"></div>
+<div class="form-row"><label>Password</label><input type="password" name="password" required placeholder="Enter password"></div>
+<button class="btn" type="submit">Login</button></form>
+<p class="center muted">New citizen? <a href="{% url 'signup' %}" style="color:#0077cc">Create account</a></p>
+<p class="center muted"><a href="{% url 'user_login' %}">← Back</a></p></div></div>
+{% endblock %}

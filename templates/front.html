@@ -1,0 +1,21 @@
+{% extends "base.html" %}{% block title %}CivicTap Dashboard{% endblock %}{% block body %}
+<div id="side" class="sidebar">
+<a href="{% url 'profile' %}">Profile</a><a href="{% url 'my_city' %}">My City</a><a href="{% url 'help' %}">Help</a>
+<a href="{% url 'privacy' %}">Privacy</a><a href="{% url 'about' %}">About Us</a><a href="{% url 'feedback' %}">Feedback</a><a href="{% url 'logout' %}">Logout</a>
+</div>
+<header class="navbar"><span class="menu" onclick="document.getElementById('side').classList.toggle('open')">☰</span><div class="logo">CivicTap</div><div class="helpdesk">Help Desk: +91 12345 67890</div></header>
+<main class="feed">
+{% for item in issues %}
+<article class="post">
+<span class="status {{ item.status|cut:' ' }}">{{ item.status }}</span>
+<div class="post-head"><div class="avatar">{{ item.full_name|first|upper }}</div><div><strong>@{{ item.full_name }}</strong><div class="time">{{ item.created_at|date:"d M Y, h:i A" }}</div></div></div>
+<p class="desc">{{ item.description }}</p>
+{% if item.address %}<p class="muted">📍 {{ item.address }}</p>{% endif %}
+{% if item.image %}<img src="{{ item.image.url }}" alt="Civic issue image">{% endif %}
+</article>
+{% empty %}<div class="card center"><h2>No reports yet</h2><p class="muted">Be the first citizen to report an issue.</p></div>{% endfor %}
+</main>
+<nav class="bottom-nav">
+<a href="{% url 'front' %}"><b>⌂</b>Home</a><a href="{% url 'my_city' %}"><b>⌖</b>My City</a><a class="main" href="{% url 'issue' %}"><b>＋</b>New Report</a><a href="{% url 'help' %}"><b>?</b>Help</a><a href="{% url 'profile' %}"><b>◯</b>Profile</a>
+</nav>
+{% endblock %}

@@ -1,0 +1,4 @@
+{% extends "admin_base.html" %}{% block title %}Admin Dashboard - CivicTap{% endblock %}{% block admin_content %}
+<h1>Welcome, {{ request.user.username }}!</h1><p class="muted">CivicTap administration.</p>
+<div class="stats"><div class="stat"><div>Users</div><strong>{{ users_count }}</strong></div><div class="stat"><div>Total Issues</div><strong>{{ issues_count }}</strong></div><div class="stat"><div>Pending</div><strong>{{ pending_count }}</strong></div><div class="stat"><div>Resolved</div><strong>{{ resolved_count }}</strong></div><div class="stat"><div>Feedback</div><strong>{{ feedback_count }}</strong></div></div>
+{% endblock %}

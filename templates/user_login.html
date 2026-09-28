@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}User Login - CivicTap{% endblock %}
+{% block body %}
+<div class="container"><div class="card center">
+<h1>User Login</h1><p class="muted">Choose an option to continue.</p>
+<div class="role-actions">
+<a class="btn" href="{% url 'login' %}">Existing User</a>
+<a class="btn secondary" href="{% url 'signup' %}">Create New User</a>
+</div>
+<p class="center muted"><a href="{% url 'home' %}">← Back</a></p>
+</div></div>
+{% endblock %}

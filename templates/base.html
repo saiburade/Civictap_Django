@@ -1,0 +1,18 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}CivicTap{% endblock %}</title>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+{% if messages %}
+<div class="toast-wrap">
+{% for message in messages %}<div class="toast {{ message.tags }}">{{ message }}</div>{% endfor %}
+</div>
+{% endif %}
+{% block body %}{% endblock %}
+</body>
+</html>

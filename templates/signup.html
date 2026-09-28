@@ -1,0 +1,7 @@
+{% extends "base.html" %}{% block title %}Sign Up - CivicTap{% endblock %}{% block body %}
+<div class="container"><div class="card"><h1>Join CivicTap</h1><p class="muted">Create your CivicTap citizen account.</p>
+<form method="post">{% csrf_token %}{{ form.non_field_errors }}
+{% for field in form %}<div class="form-row"><label>{{ field.label }}</label>{{ field }}{{ field.errors }}</div>{% endfor %}
+<button class="btn" type="submit">Create Account</button></form>
+<p class="center muted">Already registered? <a href="{% url 'login' %}" style="color:#0077cc">Login</a></p><p class="center muted"><a href="{% url 'user_login' %}">← Back</a></p></div></div>
+{% endblock %}

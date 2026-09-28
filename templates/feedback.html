@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Feedback - CivicTap{% endblock %}{% block body %}
+<div class="container"><div class="card"><h1>Feedback</h1><p class="muted">Your opinion shapes CivicTap.</p>
+<form method="post">{% csrf_token %}<div class="form-row"><label>Your Comments</label>{{ form.message }}{{ form.message.errors }}</div>
+<div class="form-row"><label>Rate your experience</label>{{ form.rating }}{{ form.rating.errors }}</div>
+<button class="btn" type="submit">Submit Feedback</button></form></div></div>
+{% endblock %}

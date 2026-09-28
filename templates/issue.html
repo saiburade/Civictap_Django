@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block title %}New Report - CivicTap{% endblock %}{% block body %}
+<div class="container"><div class="card"><h1>Report a Civic Issue</h1><p class="muted">Tell CivicTap what needs attention in your area.</p>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.non_field_errors }}
+<div class="form-row"><label>Issue Description</label>{{ form.description }}{{ form.description.errors }}</div>
+<div class="form-row"><label>Area / Address</label>{{ form.address }}{{ form.address.errors }}</div>
+<div class="form-row"><label>Photo (optional)</label>{{ form.image }}{{ form.image.errors }}</div>
+<button class="btn" type="submit">Submit Report</button> <a class="btn" style="background:#7f8c8d" href="{% url 'front' %}">Cancel</a></form></div></div>
+{% endblock %}

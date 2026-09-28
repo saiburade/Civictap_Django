@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}CivicTap - Welcome{% endblock %}
+{% block body %}
+<div class="container"><div class="card center role-card">
+<h1>CivicTap</h1>
+<p class="muted">Local Civic Issue Tracker</p>
+<p>Choose how you want to continue.</p>
+<div class="role-actions">
+<a class="btn" href="{% url 'admin_login' %}">Admin Login</a>
+<a class="btn secondary" href="{% url 'user_login' %}">User Login</a>
+</div>
+</div></div>
+{% endblock %}

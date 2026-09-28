@@ -1,0 +1,5 @@
+{% extends "admin_base.html" %}{% block title %}Users - CivicTap Admin{% endblock %}{% block admin_content %}
+<h1>Users</h1><form class="search" method="get"><input name="search" value="{{ query }}" placeholder="Search by name, phone or address"><button class="btn">Search</button></form>
+<div class="table-wrap"><table class="data-table"><tr><th>ID</th><th>Name</th><th>Gender</th><th>Phone</th><th>Address</th><th>Joined</th><th>Action</th></tr>
+{% for u in users %}<tr><td>{{ u.id }}</td><td>{{ u.full_name }}</td><td>{{ u.gender }}</td><td>{{ u.phone }}</td><td>{{ u.address }}</td><td>{{ u.created_at|date:"d M Y" }}</td><td><form method="post" action="{% url 'delete_user' u.id %}" onsubmit="return confirm('Delete this user and their reports?')">{% csrf_token %}<button class="btn btn-danger">Delete</button></form></td></tr>{% empty %}<tr><td colspan="7">No users found.</td></tr>{% endfor %}</table></div>
+{% endblock %}
